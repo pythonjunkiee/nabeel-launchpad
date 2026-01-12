@@ -176,14 +176,14 @@ export function ContactSection() {
 
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com/in/nabeel-anwar-siddiqui"
+                href="https://www.linkedin.com/in/nxbeel/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
               >
                 <Linkedin className="w-5 h-5 text-primary" />
                 <span className="text-sm font-mono">
-                  linkedin.com/in/nabeel-anwar-siddiqui
+                  linkedin.com/in/nxbeel
                 </span>
               </a>
 

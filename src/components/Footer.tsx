@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
 const socialLinks = [
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/nabeel-anwar-siddiqui",
+    href: "https://www.linkedin.com/in/nxbeel/",
     icon: Linkedin,
   },
   {
