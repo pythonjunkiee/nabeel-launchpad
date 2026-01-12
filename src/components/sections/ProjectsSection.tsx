@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import {
-  Eye,
   Satellite,
   Cloud,
   ExternalLink,
   Github,
   Layers,
-  Cpu,
-  FileSearch,
+  Hand,
 } from "lucide-react";
 import { SectionWrapper, itemVariants } from "../SectionWrapper";
 import { TiltCard } from "../TiltCard";
@@ -107,6 +105,36 @@ const projects: Project[] = [
     tags: ["Cloud Computing", "Load Balancing", "Distributed Systems", "Research"],
     links: [
       { label: "Publication", href: "#", icon: ExternalLink },
+    ],
+  },
+  {
+    title: "Hand Gesture Recognition",
+    category: "Computer Vision",
+    icon: Hand,
+    description:
+      "Real-time ASL hand gesture recognition system using MediaPipe and ML classifiers for live webcam inference.",
+    build: [
+      "Built real-time hand gesture detection for 24 ASL characters (A-Y) using MediaPipe hand landmarks",
+      "Implemented KNN and Random Forest classifiers for gesture classification",
+      "Custom landmark normalization for translation-invariant recognition",
+    ],
+    evaluate: [
+      "Real-time webcam inference with visual bounding box feedback",
+      "Compared KNN vs Random Forest classifier performance",
+      "Robust detection with 0.3 minimum confidence threshold",
+    ],
+    improve: [
+      "Extend to full ASL alphabet including motion-based characters (J, Z)",
+      "Add word/sentence formation from detected characters",
+      "Deploy as web application for broader accessibility",
+    ],
+    tags: ["Python", "MediaPipe", "OpenCV", "Scikit-learn", "KNN", "Random Forest"],
+    metrics: [
+      { label: "Characters", value: "24 ASL" },
+      { label: "Inference", value: "Real-time" },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/pythonjunkiee/Hand-Guester-Recognition", icon: Github },
     ],
   },
 ];
