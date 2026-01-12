@@ -6,7 +6,7 @@ const bentoItems = [
   {
     title: "About Me",
     content:
-      "I'm a Machine Learning and Computer Vision Engineer with a passion for building intelligent systems. I specialize in Deep Learning, CNN architectures, and end-to-end ML pipelines. Currently completing my B.Tech in CSE from KIIT University.",
+      "I'm a Machine Learning, AI-Development and Web development engineer with a passion for building intelligent systems. I specialize in Deep Learning, CNN architectures, and end-to-end ML pipelines and being better than salwa at everything .",
     icon: Brain,
     className: "md:col-span-2 md:row-span-2",
   },
@@ -62,12 +62,8 @@ export function AboutSection() {
             </div>
 
             {/* Content */}
-            <h3 className="font-display text-lg font-semibold mb-2">
-              {item.title}
-            </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              {item.content}
-            </p>
+            <h3 className="font-display text-lg font-semibold mb-2">{item.title}</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">{item.content}</p>
 
             {/* Hover glow */}
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
