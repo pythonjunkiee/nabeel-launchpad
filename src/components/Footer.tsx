@@ -30,7 +30,7 @@ export function Footer() {
               Nabeel Anwar Siddiqui
             </h3>
             <p className="text-muted-foreground text-sm">
-              Machine Learning & Computer Vision Engineer
+              Software Developer Engineer
             </p>
           </div>
 
