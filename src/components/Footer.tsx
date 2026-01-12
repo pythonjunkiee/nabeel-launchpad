@@ -14,7 +14,7 @@ const socialLinks = [
   },
   {
     name: "Email",
-    href: "mailto:nabeelansiddiqui786@gmail.com",
+    href: "mailto:nxbeelanwar@gmail.com",
     icon: Mail,
   },
 ];
