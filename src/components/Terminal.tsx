@@ -29,11 +29,19 @@ const commands: Record<string, string> = {
   ├── LinkedIn: linkedin.com/in/nabeel-anwar-siddiqui
   └── GitHub: github.com/pythonjunkiee
 `,
+  working: `
+🚀 Currently Working On:
+  ├── Project: AI-Powered Maritime Surveillance System
+  ├── Stack: Python, TensorFlow, Streamlit, AWS
+  ├── Status: In Development 🔧
+  └── Goal: Real-time illegal fishing detection with satellite imagery
+`,
   help: `
 Available commands:
   ├── whoami   → Who is Nabeel?
   ├── ls       → List projects
   ├── skills   → View skill stack
+  ├── working  → Current project
   ├── contact  → Get in touch
   ├── clear    → Clear terminal
   └── help     → Show this menu
