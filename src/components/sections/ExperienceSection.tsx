@@ -34,7 +34,6 @@ const timelineData: TimelineItem[] = [
     title: "B.Tech, Computer Science Engineering",
     organization: "KIIT University",
     period: "2021 – 2025",
-    description: "CGPA: 7.48/10",
     details: [
       "Focus areas: Machine Learning, AI, Web Development, Cloud Computing",
     ],
@@ -44,14 +43,12 @@ const timelineData: TimelineItem[] = [
     title: "Senior Secondary (12th)",
     organization: "The Model School, Abu Dhabi",
     period: "2020 – 2021",
-    description: "Percentage: 78.4%",
   },
   {
     type: "education",
     title: "Secondary (10th)",
     organization: "The Model School, Abu Dhabi",
     period: "2018 – 2019",
-    description: "Percentage: 85.8%",
   },
 ];
 
