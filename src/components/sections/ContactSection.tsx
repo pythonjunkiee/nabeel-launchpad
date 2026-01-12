@@ -33,12 +33,12 @@ export function ContactSection() {
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("nabeelansiddiqui786@gmail.com");
+    navigator.clipboard.writeText("nxbeelanwar@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
     toast({
       title: "Email Copied!",
-      description: "nabeelansiddiqui786@gmail.com",
+      description: "nxbeelanwar@gmail.com",
     });
   };
 
@@ -164,7 +164,7 @@ export function ContactSection() {
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-primary" />
                   <span className="text-sm font-mono">
-                    nabeelansiddiqui786@gmail.com
+                    nxbeelanwar@gmail.com
                   </span>
                 </div>
                 {copied ? (

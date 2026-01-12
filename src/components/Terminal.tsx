@@ -25,7 +25,7 @@ const commands: Record<string, string> = {
 `,
   contact: `
 📬 Contact:
-  ├── Email: nabeelansiddiqui786@gmail.com
+  ├── Email: nxbeelanwar@gmail.com
   ├── LinkedIn: linkedin.com/in/nabeel-anwar-siddiqui
   └── GitHub: github.com/pythonjunkiee
 `,
