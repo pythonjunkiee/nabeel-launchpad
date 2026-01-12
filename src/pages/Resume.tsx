@@ -37,7 +37,7 @@ const Resume = () => {
                 Nabeel Anwar Siddiqui
               </h1>
               <p className="text-primary font-medium mb-6">
-                ML & Computer Vision Engineer
+                Software Developer Engineer
               </p>
 
               {/* Highlights */}

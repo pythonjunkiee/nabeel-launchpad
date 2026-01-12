@@ -8,7 +8,7 @@ interface TerminalLine {
 
 const commands: Record<string, string> = {
   whoami:
-    "Nabeel Anwar Siddiqui – ML & Computer Vision Engineer based in Abu Dhabi, crafting intelligent systems from satellite pixels and cloud workloads.",
+    "Nabeel Anwar Siddiqui – Software Developer Engineer based in Abu Dhabi, building intelligent systems and scalable applications.",
   ls: `
 📁 Projects:
   ├── illegal-fishing-detection  (97.7% accuracy)
