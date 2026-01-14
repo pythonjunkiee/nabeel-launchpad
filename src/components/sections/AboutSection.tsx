@@ -24,7 +24,7 @@ const bentoItems = [
   },
   {
     title: "Preferred Roles",
-    content: "ML Engineer, CV Engineer, Cloud/AI Engineer",
+    content: "ML Engineer, AI Engineer, Web Dev Engineer",
     icon: Briefcase,
     className: "md:col-span-2",
   },
