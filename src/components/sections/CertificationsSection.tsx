@@ -12,24 +12,34 @@ interface CertificationItem {
 
 const certifications: CertificationItem[] = [
   {
-    name: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    date: "2024",
-    credentialUrl: "#",
-    credentialId: "ABC123XYZ",
+    name: "Oracle Data Platform 2025 Certified Foundations Associate",
+    issuer: "Oracle",
+    date: "2024 (Expires Oct 2027)",
+    credentialUrl: "https://www.linkedin.com/in/nxbeel/",
   },
   {
-    name: "Google Professional Cloud Developer",
+    name: "Entrepreneurship: Preparing for Launch",
+    issuer: "University of Illinois Urbana-Champaign (Coursera)",
+    date: "2023",
+    credentialUrl: "https://www.linkedin.com/in/nxbeel/",
+  },
+  {
+    name: "Engineer Data for Predictive Modeling with BigQuery ML",
     issuer: "Google Cloud",
-    date: "2023",
-    credentialUrl: "#",
-    credentialId: "GCP-DEV-456",
+    date: "Oct 2021",
+    credentialUrl: "https://www.cloudskillsboost.google/public_profiles/a9a3af70-2ac7-4d18-a145-132b02d51b4a",
   },
   {
-    name: "Meta Front-End Developer Certificate",
-    issuer: "Meta",
-    date: "2023",
-    credentialUrl: "#",
+    name: "Use Machine Learning APIs on Google Cloud",
+    issuer: "Google Cloud",
+    date: "Oct 2021",
+    credentialUrl: "https://www.cloudskillsboost.google/public_profiles/a9a3af70-2ac7-4d18-a145-132b02d51b4a",
+  },
+  {
+    name: "Implementing Cloud Load Balancing for Compute Engine",
+    issuer: "Google Cloud",
+    date: "Oct 2021",
+    credentialUrl: "https://www.cloudskillsboost.google/public_profiles/a9a3af70-2ac7-4d18-a145-132b02d51b4a",
   },
 ];
 
