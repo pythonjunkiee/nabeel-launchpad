@@ -24,22 +24,21 @@ const certifications: CertificationItem[] = [
     credentialUrl: "https://www.linkedin.com/in/nxbeel/",
   },
   {
-    name: "Engineer Data for Predictive Modeling with BigQuery ML",
-    issuer: "Google Cloud",
-    date: "Oct 2021",
-    credentialUrl: "https://www.cloudskillsboost.google/public_profiles/a9a3af70-2ac7-4d18-a145-132b02d51b4a",
+    name: "AWS Academy Graduate - Introduction to Cloud Semester 1",
+    issuer: "Amazon Web Services Training and Certification",
+    date: "Mar 2024",
+    credentialUrl: "https://www.linkedin.com/in/nxbeel/",
   },
   {
-    name: "Use Machine Learning APIs on Google Cloud",
-    issuer: "Google Cloud",
-    date: "Oct 2021",
-    credentialUrl: "https://www.cloudskillsboost.google/public_profiles/a9a3af70-2ac7-4d18-a145-132b02d51b4a",
+    name: "Python and Artificial Intelligence Bootcamp",
+    issuer: "DevTown & GDSC KIIT Chapter",
+    date: "2022",
+    credentialUrl: "https://cert.devtown.in.tech/verify/iRFhu",
   },
   {
-    name: "Implementing Cloud Load Balancing for Compute Engine",
-    issuer: "Google Cloud",
-    date: "Oct 2021",
-    credentialUrl: "https://www.cloudskillsboost.google/public_profiles/a9a3af70-2ac7-4d18-a145-132b02d51b4a",
+    name: "IELTS Academic - Band 7.5 (CEFR Level C1)",
+    issuer: "British Council / IDP / Cambridge Assessment",
+    date: "Mar 2021",
   },
 ];
 
