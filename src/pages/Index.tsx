@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -12,6 +12,8 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { AchievementBadge } from "@/components/AchievementBadge";
 
 const Index = () => {
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
+
   useEffect(() => {
     // Set dark mode by default
     document.documentElement.classList.add("dark");
@@ -22,9 +24,15 @@ const Index = () => {
       {/* Mesh gradient background */}
       <div className="fixed inset-0 mesh-gradient pointer-events-none" />
       
-      <Sidebar />
+      <Sidebar onCollapsedChange={setSidebarCollapsed} />
       
-      <main className="relative z-10">
+      <main 
+        className="relative z-10 transition-all duration-300"
+        style={{ 
+          marginLeft: sidebarCollapsed ? '0px' : '220px',
+          paddingLeft: sidebarCollapsed ? '0px' : '0px'
+        }}
+      >
         <HeroSection />
         <AboutSection />
         <ExperienceSection />

@@ -14,8 +14,12 @@ const navLinks = [
   { name: "Contact", href: "#contact", icon: Mail },
 ];
 
-export function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+interface SidebarProps {
+  onCollapsedChange?: (collapsed: boolean) => void;
+}
+
+export function Sidebar({ onCollapsedChange }: SidebarProps) {
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -46,6 +50,8 @@ export function Sidebar() {
     }
   };
 
+  const sidebarWidth = isCollapsed ? 64 : 200;
+
   return (
     <>
       {/* Desktop Sidebar */}
@@ -53,14 +59,18 @@ export function Sidebar() {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`hidden md:flex fixed left-4 top-1/2 -translate-y-1/2 z-50 flex-col transition-all duration-300 ${
+        className={`hidden md:flex fixed left-4 top-4 z-50 flex-col transition-all duration-300 ${
           isCollapsed ? "w-16" : "w-48"
         }`}
       >
-        <div className="nav-glass rounded-2xl p-3 flex flex-col gap-2 shadow-lg shadow-primary/10">
+        <div className="nav-glass rounded-2xl p-3 flex flex-col gap-2 shadow-lg shadow-primary/10 max-h-[calc(100vh-2rem)] overflow-y-auto">
           {/* Toggle Button */}
           <button
-            onClick={() => setIsCollapsed(!isCollapsed)}
+            onClick={() => {
+              const newState = !isCollapsed;
+              setIsCollapsed(newState);
+              onCollapsedChange?.(newState);
+            }}
             className="p-2 rounded-xl hover:bg-muted/50 transition-colors self-end mb-2"
             aria-label="Toggle sidebar"
           >
