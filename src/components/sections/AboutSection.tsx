@@ -30,9 +30,9 @@ const bentoItems = [
   },
   {
     title: "Tech Focus",
-    content: "Python, TensorFlow, PyTorch, GANs, CNNs",
+    content: "Python, TensorFlow, PyTorch, React, TypeScript, Node.js, Tailwind CSS, Next.js",
     icon: Database,
-    className: "",
+    className: "md:col-span-2",
   },
   {
     title: "Domain",

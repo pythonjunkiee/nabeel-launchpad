@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Navbar } from "@/components/Navbar";
+import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
@@ -22,7 +22,7 @@ const Index = () => {
       {/* Mesh gradient background */}
       <div className="fixed inset-0 mesh-gradient pointer-events-none" />
       
-      <Navbar />
+      <Sidebar />
       
       <main className="relative z-10">
         <HeroSection />
