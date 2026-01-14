@@ -27,10 +27,9 @@ const Index = () => {
       <Sidebar onCollapsedChange={setSidebarCollapsed} />
       
       <main 
-        className="relative z-10 transition-all duration-300"
+        className="relative z-10 transition-all duration-300 md:ml-20"
         style={{ 
-          marginLeft: sidebarCollapsed ? '0px' : '220px',
-          paddingLeft: sidebarCollapsed ? '0px' : '0px'
+          marginLeft: sidebarCollapsed ? undefined : '220px',
         }}
       >
         <HeroSection />
