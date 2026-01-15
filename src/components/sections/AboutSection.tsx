@@ -6,7 +6,7 @@ const bentoItems = [
   {
     title: "About Me",
     content:
-      "I'm a Machine Learning, AI-Development and Web development engineer with a passion for building intelligent systems. I specialize in Deep Learning, CNN architectures, and end-to-end ML pipelines and being better than salwa at everything .",
+      "I'm a Machine Learning, AI-Development and Web development engineer with a passion for building intelligent systems. I specialize in Deep Learning, CNN architectures, and end-to-end ML pipelines .",
     icon: Brain,
     className: "md:col-span-2 md:row-span-2",
   },
