@@ -14,6 +14,25 @@ interface ExperienceItem {
 
 const experienceData: ExperienceItem[] = [
   {
+    title: "Security Intelligence & Analytics Trainee",
+    organization: "Wipro",
+    period: "Jan 2026 – Present",
+    description:
+      "Built and managed virtualized security labs using Linux, Windows Server, Kali Linux, and VirtualBox for hands-on security testing in simulated enterprise environments.",
+    details: [
+      "Analyzed network traffic and protocols (DNS, HTTP, FTP, TCP/IP) using Wireshark to identify anomalies and credential exposure in lab-based and enterprise-simulated scenarios",
+      "Configured and administered Windows Server services, including Active Directory, DNS, DHCP, and authentication controls",
+      "Performed log analysis and security monitoring across Windows, Linux, proxy, firewall, and endpoint logs to detect suspicious activity",
+      "Worked with SIEM platforms (IBM QRadar & Splunk) for log ingestion, correlation rules, alerting, offense management, and reporting",
+      "Conducted vulnerability assessments using Nessus, prioritizing risks based on CVSS scoring and NIST / CIS benchmarks",
+      "Applied the MITRE ATT&CK framework and threat hunting techniques to detect malware, brute-force attacks, phishing, and lateral movement",
+      "Assisted in incident response workflows, firewall and WAF monitoring (UFW, Palo Alto), and cloud security fundamentals on Microsoft Azure",
+    ],
+    skills: ["SIEM", "Wireshark", "Nessus", "MITRE ATT&CK", "Windows Server", "Linux", "Azure", "Splunk", "QRadar"],
+    impact:
+      "Strengthened security monitoring capabilities and threat detection across enterprise environments",
+  },
+  {
     title: "Intern",
     organization: "Qlub",
     period: "Jan 2025 – Aug 2025",
