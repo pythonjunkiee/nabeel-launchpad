@@ -17,9 +17,8 @@ const experienceData: ExperienceItem[] = [
     title: "Security Intelligence & Analytics Trainee",
     organization: "Wipro",
     period: "Jan 2026 – Present",
-    description:
-      "Built and managed virtualized security labs using Linux, Windows Server, Kali Linux, and VirtualBox for hands-on security testing in simulated enterprise environments.",
     details: [
+      "Built and managed virtualized security labs using Linux, Windows Server, Kali Linux, and VirtualBox for hands-on security testing in simulated enterprise environments",
       "Analyzed network traffic and protocols (DNS, HTTP, FTP, TCP/IP) using Wireshark to identify anomalies and credential exposure in lab-based and enterprise-simulated scenarios",
       "Configured and administered Windows Server services, including Active Directory, DNS, DHCP, and authentication controls",
       "Performed log analysis and security monitoring across Windows, Linux, proxy, firewall, and endpoint logs to detect suspicious activity",
@@ -36,9 +35,8 @@ const experienceData: ExperienceItem[] = [
     title: "Intern",
     organization: "Qlub",
     period: "Jan 2025 – Aug 2025",
-    description:
-      "Supported API-linked payment integration across 85+ restaurants.",
     details: [
+      "Supported API-linked payment integration across 85+ restaurants",
       "Performed SQL queries to verify partner data integrity and validate production table mappings",
       "Created detailed data-mapping documentation and assisted in resolving API–database mismatches during integration testing",
     ],
