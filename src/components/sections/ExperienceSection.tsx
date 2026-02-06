@@ -28,37 +28,28 @@ const experienceData: ExperienceItem[] = [
       "Assisted in incident response workflows, firewall and WAF monitoring (UFW, Palo Alto), and cloud security fundamentals on Microsoft Azure",
     ],
     skills: ["SIEM", "Wireshark", "Nessus", "MITRE ATT&CK", "Windows Server", "Linux", "Azure", "Splunk", "QRadar"],
-    impact:
-      "Strengthened security monitoring capabilities and threat detection across enterprise environments",
+    impact: "Strengthened security monitoring capabilities and threat detection across enterprise environments",
   },
   {
     title: "Intern",
     organization: "Qlub",
-    period: "Jan 2025 – Aug 2025",
+    period: "Jan 2025 – Oct 2025",
     details: [
       "Supported API-linked payment integration across 85+ restaurants",
       "Performed SQL queries to verify partner data integrity and validate production table mappings",
       "Created detailed data-mapping documentation and assisted in resolving API–database mismatches during integration testing",
     ],
     skills: ["SQL", "REST APIs", "Data Validation", "Documentation"],
-    impact:
-      "Enhanced transaction reliability and reduced data mismatches in payment flows",
+    impact: "Enhanced transaction reliability and reduced data mismatches in payment flows",
   },
 ];
 
 export function ExperienceSection() {
   return (
-    <SectionWrapper
-      id="experience"
-      title="Experience"
-      subtitle="My professional journey"
-    >
+    <SectionWrapper id="experience" title="Experience" subtitle="My professional journey">
       <div className="grid gap-6">
         {experienceData.map((item, index) => (
-          <motion.div
-            key={`${item.title}-${index}`}
-            variants={itemVariants}
-          >
+          <motion.div key={`${item.title}-${index}`} variants={itemVariants}>
             <motion.div
               className="glass p-6 md:p-8 rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 group"
               whileHover={{ y: -4 }}
@@ -70,12 +61,8 @@ export function ExperienceSection() {
                     <Briefcase className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-display text-xl font-bold">
-                      {item.title}
-                    </h3>
-                    <p className="text-primary font-medium">
-                      {item.organization}
-                    </p>
+                    <h3 className="font-display text-xl font-bold">{item.title}</h3>
+                    <p className="text-primary font-medium">{item.organization}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -85,20 +72,13 @@ export function ExperienceSection() {
               </div>
 
               {/* Description */}
-              {item.description && (
-                <p className="text-muted-foreground mb-4">
-                  {item.description}
-                </p>
-              )}
+              {item.description && <p className="text-muted-foreground mb-4">{item.description}</p>}
 
               {/* Details */}
               {item.details && (
                 <ul className="space-y-2 mb-4">
                   {item.details.map((detail, i) => (
-                    <li
-                      key={i}
-                      className="text-sm text-muted-foreground flex items-start gap-2"
-                    >
+                    <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
                       {detail}
                     </li>
@@ -110,10 +90,7 @@ export function ExperienceSection() {
               {item.skills && (
                 <div className="flex flex-wrap gap-2 mb-4">
                   {item.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"
-                    >
+                    <span key={skill} className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">
                       {skill}
                     </span>
                   ))}
@@ -121,11 +98,7 @@ export function ExperienceSection() {
               )}
 
               {/* Impact */}
-              {item.impact && (
-                <p className="text-sm text-foreground font-medium">
-                  💡 {item.impact}
-                </p>
-              )}
+              {item.impact && <p className="text-sm text-foreground font-medium">💡 {item.impact}</p>}
             </motion.div>
           </motion.div>
         ))}
