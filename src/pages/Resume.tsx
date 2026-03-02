@@ -5,8 +5,7 @@ import { MagneticButton } from "@/components/MagneticButton";
 
 const highlights = [
   { icon: Briefcase, label: "Experience", value: "Fresher (2025 Graduate)" },
-  { icon: Code, label: "Focus", value: "ML & Computer Vision" },
-  { icon: Award, label: "Achievement", value: "97.7% Detection Accuracy" },
+  { icon: Code, label: "Focus", value: "ML, CV, AI & Full-Stack Web Dev" },
 ];
 
 const Resume = () => {
