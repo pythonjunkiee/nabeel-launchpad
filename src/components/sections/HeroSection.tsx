@@ -5,7 +5,6 @@ import { AnimatedCounter } from "../AnimatedCounter";
 import { ContainerScroll } from "../ui/container-scroll-animation";
 
 const metrics = [
-  { value: 97.7, suffix: "%", label: "Accuracy on Fishing Detection" },
   { value: 2000, suffix: "+", label: "Satellite Images Processed" },
   { value: 1, suffix: "", label: "Published Research Paper" },
 ];

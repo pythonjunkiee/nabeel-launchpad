@@ -17,10 +17,10 @@ const bentoItems = [
     className: "",
   },
   {
-    title: "Specialization",
-    content: "Computer Vision & ML",
+    title: "Focus",
+    content: "Machine Learning, Computer Vision, AI Systems & Full-Stack Web Development",
     icon: Eye,
-    className: "",
+    className: "md:col-span-2",
   },
   {
     title: "Preferred Roles",
