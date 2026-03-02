@@ -24,7 +24,7 @@ export function ContactSection() {
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     toast({
-      title: "Message Encrypted & Sent!",
+      title: "Message Sent!",
       description: "Thanks for reaching out. I'll get back to you soon.",
     });
 
@@ -59,8 +59,8 @@ export function ContactSection() {
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
                 <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
               </div>
-              <span className="text-xs text-muted-foreground font-mono ml-2">
-                secure-message-portal
+              <span className="text-xs text-muted-foreground ml-2">
+                Get in touch
               </span>
             </div>
 
@@ -134,12 +134,12 @@ export function ContactSection() {
                       transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                       className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full"
                     />
-                    Encrypting...
+                    Sending...
                   </>
                 ) : (
                   <>
-                    <Lock className="w-4 h-4" />
-                    Encrypt & Send
+                    <Send className="w-4 h-4" />
+                    Send Message
                   </>
                 )}
               </motion.button>
@@ -203,7 +203,7 @@ export function ContactSection() {
           {/* AI Lab Terminal */}
           <div>
             <h3 className="font-display text-lg font-semibold mb-4 flex items-center gap-2">
-              <span className="text-primary">&gt;_</span> AI Lab Terminal
+              <span className="text-primary">→</span> Interactive Terminal
             </h3>
             <Terminal />
           </div>
