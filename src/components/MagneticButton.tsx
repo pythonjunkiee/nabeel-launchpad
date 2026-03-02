@@ -37,7 +37,7 @@ export function MagneticButton({
 
   const variants = {
     primary:
-      "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/25 neon-glow",
+      "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/25 soft-glow",
     secondary:
       "glass border border-border hover:border-primary/50 hover:bg-primary/5",
     ghost: "hover:bg-muted/50",
