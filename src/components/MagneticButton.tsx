@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -19,6 +20,7 @@ export function MagneticButton({
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [hovered, setHovered] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!ref.current) return;
@@ -30,10 +32,11 @@ export function MagneticButton({
 
   const handleMouseLeave = () => {
     setPosition({ x: 0, y: 0 });
+    setHovered(false);
   };
 
   const baseStyles =
-    "relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-all duration-200";
+    "relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-all duration-200 overflow-hidden";
 
   const variants = {
     primary:
@@ -48,12 +51,42 @@ export function MagneticButton({
       ref={ref}
       className={cn(baseStyles, variants[variant], className)}
       onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovered(true)}
       onMouseLeave={handleMouseLeave}
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 150, damping: 15 }}
       whileTap={{ scale: 0.95 }}
     >
-      {children}
+      {/* Canvas reveal on hover — only for primary buttons */}
+      {variant === "primary" && (
+        <AnimatePresence>
+          {hovered && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0 z-0"
+            >
+              <CanvasRevealEffect
+                animationSpeed={8}
+                containerClassName="bg-transparent"
+                colors={[
+                  [59, 130, 246],  /* blue-500 */
+                  [99, 102, 241],  /* indigo-500 */
+                ]}
+                opacities={[0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.5, 0.5, 0.6, 0.7]}
+                dotSize={2}
+                showGradient={false}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
+      {/* Content always on top */}
+      <span className="relative z-10 inline-flex items-center gap-2">
+        {children}
+      </span>
     </motion.div>
   );
 
