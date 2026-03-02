@@ -79,7 +79,7 @@ export function HeroSection() {
                 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
               >
                 <span className="block">Nabeel Anwar</span>
-                <span className="block text-primary neon-text">Siddiqui</span>
+                <span className="block text-primary">Siddiqui</span>
               </motion.h1>
 
               {/* Subheading */}
