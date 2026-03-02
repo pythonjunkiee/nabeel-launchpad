@@ -50,7 +50,7 @@ export function SectionWrapper({
           <motion.div variants={itemVariants} className="mb-12 md:mb-16">
             {title && (
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                {title}
+                <span className="text-primary">//</span> {title}
               </h2>
             )}
             {subtitle && (

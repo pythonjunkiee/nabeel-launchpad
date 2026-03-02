@@ -74,7 +74,7 @@ export function Footer() {
                 <ExternalLink className="w-2.5 h-2.5 text-primary-foreground" />
               </div>
               <span className="text-xs font-medium text-primary">
-                Open to Opportunities
+                ML & Cloud Verified
               </span>
             </motion.div>
           </div>
