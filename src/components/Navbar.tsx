@@ -43,7 +43,7 @@ export function Navbar() {
     setIsMobileMenuOpen(false);
     const element = document.getElementById(href.slice(1));
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
