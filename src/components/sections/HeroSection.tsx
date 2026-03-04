@@ -17,7 +17,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden"
+      className="relative overflow-hidden scroll-mt-8"
     >
       {/* Mesh gradient background */}
       <div className="absolute inset-0 mesh-gradient" />
