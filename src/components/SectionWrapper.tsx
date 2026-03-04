@@ -39,7 +39,7 @@ export function SectionWrapper({
   return (
     <motion.section
       id={id}
-      className={cn("py-24 md:py-40 relative", className)}
+      className={cn("py-24 md:py-40 relative scroll-mt-8", className)}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
