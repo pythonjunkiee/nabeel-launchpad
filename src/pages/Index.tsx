@@ -17,6 +17,8 @@ const Index = () => {
   useEffect(() => {
     // Set dark mode by default
     document.documentElement.classList.add("dark");
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
   }, []);
 
   return (
