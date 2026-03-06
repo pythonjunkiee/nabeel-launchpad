@@ -35,12 +35,8 @@ const certifications: CertificationItem[] = [
     date: "2022",
     credentialUrl: "https://cert.devtown.in.tech/verify/iRFhu",
   },
-  {
-    name: "IELTS Academic - Band 7.5 (CEFR Level C1)",
-    issuer: "British Council / IDP / Cambridge Assessment",
-    date: "Mar 2021",
-  },
 ];
+
 
 export function CertificationsSection() {
   return (
