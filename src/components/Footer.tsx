@@ -65,18 +65,21 @@ export function Footer() {
               </span>
             </div>
 
-            {/* Verified Badge */}
-            <motion.div
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20"
+            {/* LinkedIn Link */}
+            <motion.a
+              href="https://www.linkedin.com/in/nxbeel/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-colors"
               whileHover={{ scale: 1.05 }}
             >
               <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
                 <ExternalLink className="w-2.5 h-2.5 text-primary-foreground" />
               </div>
               <span className="text-xs font-medium text-primary">
-                ML & Cloud Verified
+                View on LinkedIn
               </span>
-            </motion.div>
+            </motion.a>
           </div>
         </div>
 
