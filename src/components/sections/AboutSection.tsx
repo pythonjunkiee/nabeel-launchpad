@@ -6,7 +6,7 @@ const bentoItems = [
   {
     title: "About Me",
     content:
-      "I'm a Machine Learning, AI-Development and Web development engineer with a passion for building intelligent systems. I specialize in Deep Learning, CNN architectures, and end-to-end ML pipelines .",
+      "Hi! I'm Nabeel, a Software Engineer with a background in Computer Science specializing in Artificial Intelligence. I am deeply interested in Machine Learning and Deep Learning, having already architected GAN-based restoration models and CNN classifiers with 97.8% accuracy. I am also actively expanding my expertise in Full-Stack Web Development, building on my experience optimizing payment gateways and synchronizing SQL databases to create seamless, end-to-end intelligent systems. This very webpage is a part of my journey in learning and sharpening my web development skills. If you visit a week from now and find that your favourite feature has mysteriously vanished, feel free to reach out haha, or if you have any suggestions to make this site better, I'd love to hear from you in the contact box below!",
     icon: Brain,
     className: "md:col-span-2 md:row-span-2",
   },
