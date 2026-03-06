@@ -36,7 +36,7 @@ const bentoItems = [
   },
   {
     title: "Domain",
-    content: "Cloud Computing & AI Systems",
+    content: "Machine Learning, Deep Learning, AI Development & Full-Stack Web Development",
     icon: Cloud,
     className: "",
   },
