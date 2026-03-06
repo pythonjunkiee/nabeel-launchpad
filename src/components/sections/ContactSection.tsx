@@ -79,7 +79,7 @@ export function ContactSection() {
                   }
                   required
                   className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-mono"
-                  placeholder="John Doe"
+                  placeholder="Nabeel Siddiqui"
                 />
               </div>
 
