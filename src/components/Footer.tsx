@@ -83,12 +83,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 pt-6 border-t border-border/50 text-center">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Nabeel Anwar Siddiqui. All rights reserved.
-          </p>
-        </div>
       </div>
     </footer>
   );
