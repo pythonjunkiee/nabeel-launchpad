@@ -42,9 +42,8 @@ const Index = () => {
         <ProjectsSection />
         <SkillsSection />
         <ContactSection />
+        <Footer />
       </main>
-      
-      <Footer />
       <AchievementBadge />
     </div>
   );
