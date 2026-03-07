@@ -8,6 +8,7 @@ import {
   Layers,
   Hand,
   MapPin,
+  ShoppingCart,
 } from "lucide-react";
 import { SectionWrapper, itemVariants } from "../SectionWrapper";
 import { TiltCard } from "../TiltCard";
@@ -162,6 +163,33 @@ const projects: Project[] = [
     tags: ["Python", "GeoPandas", "Shapely", "Matplotlib", "GeoJSON", "GIS"],
     links: [
       { label: "GitHub", href: "https://github.com/pythonjunkiee/GIS-intrusion-", icon: Github },
+    ],
+  },
+  {
+    title: "Smart Sales Assistant",
+    category: "ML / NLP",
+    icon: ShoppingCart,
+    description:
+      "End-to-end sales intelligence platform with lead scoring, retrieval-based chatbot, and conversion forecasting.",
+    build: [
+      "Built a Random Forest lead scoring model on mock CRM data",
+      "Implemented TF-IDF retrieval-based chatbot for FAQ handling",
+      "Integrated Prophet for monthly conversion forecasting",
+      "Deployed all components via a Streamlit dashboard",
+    ],
+    evaluate: [
+      "Lead scoring pipeline with preprocessing and feature engineering",
+      "Chatbot retrieval accuracy on FAQ dataset",
+      "Prophet forecast quality on time-series conversion data",
+    ],
+    improve: [
+      "Replace retrieval chatbot with LLM-powered conversational agent",
+      "Add real CRM integrations (Salesforce, HubSpot)",
+      "Deploy as a production web app with authentication",
+    ],
+    tags: ["Python", "Scikit-learn", "Prophet", "TF-IDF", "Streamlit", "NLP"],
+    links: [
+      { label: "GitHub", href: "https://github.com/pythonjunkiee/Smart-Sales-assistant", icon: Github },
     ],
   },
 ];
