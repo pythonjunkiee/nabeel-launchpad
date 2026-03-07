@@ -7,6 +7,7 @@ import {
   Github,
   Layers,
   Hand,
+  MapPin,
 } from "lucide-react";
 import { SectionWrapper, itemVariants } from "../SectionWrapper";
 import { TiltCard } from "../TiltCard";
