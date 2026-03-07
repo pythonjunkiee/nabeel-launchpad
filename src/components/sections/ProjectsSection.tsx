@@ -91,19 +91,6 @@ const projects: Project[] = [
     icon: Cloud,
     description:
       "Co-authored research analyzing cloud load-balancing algorithms published in SIOT Reapress.",
-    build: [
-      "Co-authored research analyzing cloud load-balancing algorithms: Min-Min, Max-Min, Round Robin",
-      "Published in SIOT Reapress journal",
-    ],
-    evaluate: [
-      "Assessed trade-offs in scalability, VM migration, algorithm overhead for distributed systems",
-      "Comprehensive comparison of algorithm performance metrics",
-    ],
-    improve: [
-      "Proposed improvements for dynamic workload handling",
-      "Enhanced resource utilization strategies",
-      "Improved fault tolerance mechanisms",
-    ],
     tags: ["Cloud Computing", "Load Balancing", "Distributed Systems", "Research"],
     links: [
       { label: "Publication", href: "#", icon: ExternalLink },
