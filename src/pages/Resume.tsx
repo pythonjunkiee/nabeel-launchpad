@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { MagneticButton } from "@/components/MagneticButton";
 
 const highlights = [
-  { icon: Briefcase, label: "Experience", value: "Fresher (2025 Graduate)" },
-  { icon: Code, label: "Focus", value: "ML, CV, AI & Full-Stack Web Dev" },
+  { icon: Briefcase, label: "Experience", value: "Fresher with 2 years of experience" },
+  { icon: Code, label: "Focus", value: "ML, Computer Vision, AI & Full-Stack Web Dev" },
 ];
 
 const Resume = () => {
@@ -66,7 +66,7 @@ const Resume = () => {
                   "Computer Vision",
                   "Deep Learning",
                   "Cloud Computing",
-                  "End-to-end Prototypes",
+                  "Web Development",
                   "Research & Analysis",
                 ].map((strength) => (
                   <span
