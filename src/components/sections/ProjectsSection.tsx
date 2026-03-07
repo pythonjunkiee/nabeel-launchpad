@@ -82,7 +82,7 @@ const projects: Project[] = [
       { label: "FID", value: "17.8" },
     ],
     links: [
-      { label: "GitHub", href: "https://github.com/pythonjunkiee", icon: Github },
+      { label: "GitHub", href: "https://github.com/pythonjunkiee/generative-adversarial-networks", icon: Github },
     ],
   },
   {
