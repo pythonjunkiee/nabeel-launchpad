@@ -93,7 +93,7 @@ const projects: Project[] = [
       "Co-authored research analyzing cloud load-balancing algorithms published in SIOT Reapress.",
     tags: ["Cloud Computing", "Load Balancing", "Distributed Systems", "Research"],
     links: [
-      { label: "Publication", href: "#", icon: ExternalLink },
+      { label: "Publication", href: "https://siot.reapress.com/journal/article/view/34", icon: ExternalLink },
     ],
   },
   {
