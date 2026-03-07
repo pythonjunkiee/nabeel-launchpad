@@ -8,6 +8,7 @@ import {
   Layers,
   Hand,
   MapPin,
+  ShoppingCart,
 } from "lucide-react";
 import { SectionWrapper, itemVariants } from "../SectionWrapper";
 import { TiltCard } from "../TiltCard";
