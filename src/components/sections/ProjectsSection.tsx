@@ -242,43 +242,49 @@ export function ProjectsSection() {
                 </div>
 
                 {/* Tabs */}
-                <div className="px-6">
-                  <div className="flex gap-1 p-1 rounded-lg bg-muted/50">
-                    {(["build", "evaluate", "improve"] as TabKey[]).map(
-                      (tab) => (
-                        <button
-                          key={tab}
-                          onClick={() => setTab(index, tab)}
-                          className={`flex-1 px-3 py-1.5 text-xs font-medium rounded-md transition-all capitalize ${
-                            getTab(index) === tab
-                              ? "bg-primary text-primary-foreground"
-                              : "text-muted-foreground hover:text-foreground"
-                          }`}
-                        >
-                          {tab}
-                        </button>
-                      )
-                    )}
-                  </div>
-                </div>
+                {(project.build || project.evaluate || project.improve) && (
+                  <>
+                    <div className="px-6">
+                      <div className="flex gap-1 p-1 rounded-lg bg-muted/50">
+                        {(["build", "evaluate", "improve"] as TabKey[]).filter(
+                          (tab) => project[tab] && project[tab]!.length > 0
+                        ).map(
+                          (tab) => (
+                            <button
+                              key={tab}
+                              onClick={() => setTab(index, tab)}
+                              className={`flex-1 px-3 py-1.5 text-xs font-medium rounded-md transition-all capitalize ${
+                                getTab(index) === tab
+                                  ? "bg-primary text-primary-foreground"
+                                  : "text-muted-foreground hover:text-foreground"
+                              }`}
+                            >
+                              {tab}
+                            </button>
+                          )
+                        )}
+                      </div>
+                    </div>
 
-                {/* Tab Content */}
-                <div className="p-6 pt-4 min-h-[160px]">
-                  <ul className="space-y-2">
-                    {project[getTab(index)].map((item, i) => (
-                      <motion.li
-                        key={i}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        className="text-sm text-muted-foreground flex items-start gap-2"
-                      >
-                        <span className="text-primary mt-0.5">▸</span>
-                        {item}
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
+                    {/* Tab Content */}
+                    <div className="p-6 pt-4 min-h-[160px]">
+                      <ul className="space-y-2">
+                        {(project[getTab(index)] || []).map((item, i) => (
+                          <motion.li
+                            key={i}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="text-sm text-muted-foreground flex items-start gap-2"
+                          >
+                            <span className="text-primary mt-0.5">▸</span>
+                            {item}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                )}
 
                 {/* Footer */}
                 <div className="px-6 pb-6">
