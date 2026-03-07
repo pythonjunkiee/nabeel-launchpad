@@ -18,9 +18,9 @@ interface Project {
   category: string;
   icon: React.ElementType;
   description: string;
-  build: string[];
-  evaluate: string[];
-  improve: string[];
+  build?: string[];
+  evaluate?: string[];
+  improve?: string[];
   tags: string[];
   metrics?: { label: string; value: string }[];
   links?: { label: string; href: string; icon: React.ElementType }[];
