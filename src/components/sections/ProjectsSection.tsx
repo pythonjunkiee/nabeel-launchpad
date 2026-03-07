@@ -53,7 +53,7 @@ const projects: Project[] = [
       { label: "Images", value: "3,200+" },
     ],
     links: [
-      { label: "GitHub", href: "https://github.com/pythonjunkiee", icon: Github },
+      { label: "GitHub", href: "https://github.com/pythonjunkiee/Illegal-Ship-Detection", icon: Github },
     ],
   },
   {
