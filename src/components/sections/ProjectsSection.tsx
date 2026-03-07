@@ -138,6 +138,32 @@ const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/pythonjunkiee/Hand-Guester-Recognition", icon: Github },
     ],
   },
+  {
+    title: "MPA Intrusion Detection – GIS Project",
+    category: "Geospatial Analysis",
+    icon: MapPin,
+    description:
+      "GIS-focused spatial analysis project to detect vessel intrusions into Marine Protected Areas using GeoJSON data.",
+    build: [
+      "Developed spatial analysis pipeline using GeoPandas and Shapely for MPA intrusion detection",
+      "Implemented point-in-polygon analysis to identify vessel positions within protected boundaries",
+      "Processed GeoJSON data for MPA boundaries and vessel positions with CRS handling",
+    ],
+    evaluate: [
+      "Spatial join-based detection of intruding vessels",
+      "Matplotlib visualization of MPA boundaries and vessel positions",
+      "Accurate CRS transformation for geospatial consistency",
+    ],
+    improve: [
+      "Integration with real-time AIS vessel tracking data",
+      "Interactive map dashboard using Folium or Leaflet",
+      "Alert system for live intrusion notifications",
+    ],
+    tags: ["Python", "GeoPandas", "Shapely", "Matplotlib", "GeoJSON", "GIS"],
+    links: [
+      { label: "GitHub", href: "https://github.com/pythonjunkiee/GIS-intrusion-", icon: Github },
+    ],
+  },
 ];
 
 type TabKey = "build" | "evaluate" | "improve";
