@@ -29,7 +29,7 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Illegal Fishing Detection System",
-    category: "Computer Vision",
+    category: "Deep Learning / GIS",
     icon: Satellite,
     description:
       "End-to-end CNN-based ship detection system achieving 97.7% accuracy on satellite imagery.",
