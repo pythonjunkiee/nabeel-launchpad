@@ -29,7 +29,7 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Illegal Fishing Detection System",
-    category: "Computer Vision",
+    category: "Deep Learning / GIS",
     icon: Satellite,
     description:
       "End-to-end CNN-based ship detection system achieving 97.7% accuracy on satellite imagery.",
@@ -53,7 +53,7 @@ const projects: Project[] = [
       { label: "Images", value: "3,200+" },
     ],
     links: [
-      { label: "GitHub", href: "https://github.com/pythonjunkiee", icon: Github },
+      { label: "GitHub", href: "https://github.com/pythonjunkiee/Illegal-Ship-Detection", icon: Github },
     ],
   },
   {
@@ -82,7 +82,7 @@ const projects: Project[] = [
       { label: "FID", value: "17.8" },
     ],
     links: [
-      { label: "GitHub", href: "https://github.com/pythonjunkiee", icon: Github },
+      { label: "GitHub", href: "https://github.com/pythonjunkiee/generative-adversarial-networks", icon: Github },
     ],
   },
   {
@@ -93,7 +93,7 @@ const projects: Project[] = [
       "Co-authored research analyzing cloud load-balancing algorithms published in SIOT Reapress.",
     tags: ["Cloud Computing", "Load Balancing", "Distributed Systems", "Research"],
     links: [
-      { label: "Publication", href: "#", icon: ExternalLink },
+      { label: "Publication", href: "https://siot.reapress.com/journal/article/view/34", icon: ExternalLink },
     ],
   },
   {
