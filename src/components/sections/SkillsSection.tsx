@@ -71,6 +71,9 @@ const skillCategories: SkillCategory[] = [
       "Google Colab",
       "VS Code",
       "Git/GitHub",
+      "Vite",
+      "Tailwind CSS",
+      "shadcn/ui",
     ],
   },
   {
