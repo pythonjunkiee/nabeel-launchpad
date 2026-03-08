@@ -27,7 +27,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Languages",
     icon: Code,
-    skills: ["Python", "C", "SQL", "HTML", "CSS", "JavaScript"],
+    skills: ["Python", "C", "SQL", "HTML", "CSS", "JavaScript", "TypeScript", "React"],
   },
   {
     title: "ML / DL & Libraries",
