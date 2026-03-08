@@ -164,7 +164,6 @@ const projects: Project[] = [
     tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui"],
     links: [
       { label: "GitHub", href: "https://github.com/pythonjunkiee/lyra-fashion-builder", icon: Github },
-      { label: "Live", href: "https://lyra-fashion.vercel.app", icon: ExternalLink },
     ],
   },
   {
