@@ -153,6 +153,21 @@ const projects: Project[] = [
     ],
   },
   {
+    title: "Lyra Fashion Builder",
+    category: "Full-Stack Web App",
+    icon: ShoppingCart,
+    description:
+      "A fashion e-commerce platform built with modern web technologies, currently in active development.",
+    build: ["Work in progress"],
+    evaluate: ["Work in progress"],
+    improve: ["Work in progress"],
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui"],
+    links: [
+      { label: "GitHub", href: "https://github.com/pythonjunkiee/lyra-fashion-builder", icon: Github },
+      { label: "Live", href: "https://lyra-fashion.vercel.app", icon: ExternalLink },
+    ],
+  },
+  {
     title: "Smart Sales Assistant",
     category: "ML / NLP",
     icon: ShoppingCart,
