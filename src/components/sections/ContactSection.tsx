@@ -20,15 +20,41 @@ export function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission - will be replaced with Lovable Cloud
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/nxbeelanwar@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
 
-    toast({
-      title: "Message Encrypted & Sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
+      if (response.ok) {
+        toast({
+          title: "Message Encrypted & Sent!",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast({
+          title: "Failed to send",
+          description: "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch {
+      toast({
+        title: "Network error",
+        description: "Could not send message. Please try again later.",
+        variant: "destructive",
+      });
+    }
 
-    setFormData({ name: "", email: "", message: "" });
     setIsSubmitting(false);
   };
 
