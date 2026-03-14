@@ -9,6 +9,7 @@ import {
   Hand,
   MapPin,
   ShoppingCart,
+  Newspaper,
 } from "lucide-react";
 import { SectionWrapper, itemVariants } from "../SectionWrapper";
 import { TiltCard } from "../TiltCard";
@@ -164,6 +165,20 @@ const projects: Project[] = [
     tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui"],
     links: [
       { label: "GitHub", href: "https://github.com/pythonjunkiee/lyra-fashion-builder", icon: Github },
+    ],
+  },
+  {
+    title: "UAE Insight Chronicle",
+    category: "Full-Stack Web App",
+    icon: Newspaper,
+    description:
+      "A comprehensive UAE-focused platform delivering insights on news, events, and developments across the Emirates.",
+    build: ["Work in progress"],
+    evaluate: ["Work in progress"],
+    improve: ["Work in progress"],
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui"],
+    links: [
+      { label: "GitHub", href: "https://github.com/pythonjunkiee/uae-insight-chronicle", icon: Github },
     ],
   },
   {
