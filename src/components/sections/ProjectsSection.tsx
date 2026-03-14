@@ -9,6 +9,7 @@ import {
   Hand,
   MapPin,
   ShoppingCart,
+  Newspaper,
 } from "lucide-react";
 import { SectionWrapper, itemVariants } from "../SectionWrapper";
 import { TiltCard } from "../TiltCard";
