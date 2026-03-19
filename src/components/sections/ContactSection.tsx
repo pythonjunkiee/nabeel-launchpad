@@ -48,6 +48,12 @@ export function ContactSection() {
         {/* Form */}
         <motion.div variants={itemVariants}>
           <div className="liquid-glass rounded-3xl p-6 md:p-8">
+            {/* macOS traffic-light dots */}
+            <div className="flex items-center gap-1.5 mb-6">
+              <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: "#ff5f57" }} />
+              <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: "#febc2e" }} />
+              <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: "#28c840" }} />
+            </div>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-2">
                 <label className="flex items-center gap-2 text-xs text-white/50 uppercase tracking-widest">
@@ -120,6 +126,12 @@ export function ContactSection() {
         {/* Quick connect */}
         <motion.div variants={itemVariants} className="space-y-4">
           <div className="liquid-glass rounded-3xl p-6">
+            {/* macOS traffic-light dots */}
+            <div className="flex items-center gap-1.5 mb-4">
+              <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: "#ff5f57" }} />
+              <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: "#febc2e" }} />
+              <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: "#28c840" }} />
+            </div>
             <h3 className="font-poppins font-medium text-white text-sm mb-5">Quick Connect</h3>
             <div className="space-y-3">
               <button

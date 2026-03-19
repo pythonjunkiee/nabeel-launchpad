@@ -26,7 +26,11 @@ const Index = () => {
   const { theme } = useTheme();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Clear any URL hash and force top-of-page on every load
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
 
     const onMove = (e: MouseEvent) => setMouse({ x: e.clientX, y: e.clientY });
     window.addEventListener("mousemove", onMove, { passive: true });

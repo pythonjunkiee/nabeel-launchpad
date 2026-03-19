@@ -146,9 +146,9 @@ export function HeroSection() {
         className="relative z-20 flex justify-center pb-10"
       >
         <button
-          onClick={scrollToProjects}
+          onClick={scrollToAbout}
           className="flex flex-col items-center gap-2 text-white/35 hover:text-white/70 transition-colors cursor-pointer group"
-          aria-label="Scroll to Projects"
+          aria-label="Scroll to About"
         >
           <span className="text-[10px] uppercase tracking-widest">Scroll</span>
           <motion.div
