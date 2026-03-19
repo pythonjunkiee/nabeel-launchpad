@@ -267,6 +267,122 @@
   .magnetic-btn {
     @apply relative transition-transform duration-200;
   }
+
+  /* ── Bloom – Liquid Glass (light tier) ── */
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.01);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: none;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1.4px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.15) 20%,
+      transparent 40%,
+      transparent 60%,
+      rgba(255, 255, 255, 0.15) 80%,
+      rgba(255, 255, 255, 0.45) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* ── Bloom – Liquid Glass Strong (heavy tier) ── */
+  .liquid-glass-strong {
+    background: rgba(255, 255, 255, 0.01);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border: none;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Breathe animation on the top/bottom border highlights */
+  .liquid-glass-strong::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1.4px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, var(--glass-glow, 0.5)) 0%,
+      rgba(255, 255, 255, 0.2) 20%,
+      transparent 40%,
+      transparent 60%,
+      rgba(255, 255, 255, 0.2) 80%,
+      rgba(255, 255, 255, var(--glass-glow, 0.5)) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    border-radius: inherit;
+    animation: glass-border-breathe 4s ease-in-out infinite;
+  }
+
+  /* Rotating conic sweep around the entire border */
+  .liquid-glass-strong::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: conic-gradient(
+      from var(--sweep-angle, 0deg),
+      transparent 0deg,
+      rgba(255, 255, 255, 0.22) 40deg,
+      rgba(255, 255, 255, 0.06) 80deg,
+      transparent 120deg
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: glass-sweep-rotate 8s linear infinite;
+  }
+}
+
+/* ── CSS @property (registered custom properties for smooth gradient animation) ── */
+@property --glass-glow {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0.5;
+}
+
+@property --sweep-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* ── Keyframes ── */
+@keyframes glass-border-breathe {
+  0%, 100% { --glass-glow: 0.5; }
+  50%       { --glass-glow: 0.9; }
+}
+
+@keyframes glass-sweep-rotate {
+  0%   { --sweep-angle: 0deg;   }
+  100% { --sweep-angle: 360deg; }
 }
 
 @layer utilities {
@@ -277,4 +393,108 @@
   .border-gradient {
     border-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-foreground))) 1;
   }
+}
+
+/* ── Light mode overrides ── */
+
+/* Body background */
+[data-theme="light"] body {
+  background: #f0f0f8 !important;
+}
+
+/* Glass cards — light tinted (high opacity for clarity) */
+[data-theme="light"] .liquid-glass {
+  background: rgba(255, 255, 255, 0.86) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+}
+[data-theme="light"] .liquid-glass::before {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.14) 0%,
+    rgba(0, 0, 0, 0.05) 20%,
+    transparent 40%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.05) 80%,
+    rgba(0, 0, 0, 0.14) 100%
+  ) !important;
+}
+[data-theme="light"] .liquid-glass-strong {
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(50px) !important;
+  -webkit-backdrop-filter: blur(50px) !important;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+}
+[data-theme="light"] .liquid-glass-strong::before {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, var(--glass-glow, 0.20)) 0%,
+    rgba(0, 0, 0, 0.07) 20%,
+    transparent 40%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.07) 80%,
+    rgba(0, 0, 0, var(--glass-glow, 0.20)) 100%
+  ) !important;
+}
+[data-theme="light"] .liquid-glass-strong::after {
+  background: conic-gradient(
+    from var(--sweep-angle, 0deg),
+    transparent 0deg,
+    rgba(0, 0, 0, 0.09) 40deg,
+    rgba(0, 0, 0, 0.03) 80deg,
+    transparent 120deg
+  ) !important;
+}
+
+/* Text — white → dark */
+[data-theme="light"] .text-white   { color: rgb(15 15 25) !important; }
+[data-theme="light"] .text-white\/80 { color: rgb(15 15 25 / 0.8) !important; }
+[data-theme="light"] .text-white\/72 { color: rgb(15 15 25 / 0.72) !important; }
+[data-theme="light"] .text-white\/70 { color: rgb(15 15 25 / 0.7) !important; }
+[data-theme="light"] .text-white\/65 { color: rgb(15 15 25 / 0.65) !important; }
+[data-theme="light"] .text-white\/60 { color: rgb(15 15 25 / 0.6) !important; }
+[data-theme="light"] .text-white\/55 { color: rgb(15 15 25 / 0.55) !important; }
+[data-theme="light"] .text-white\/50 { color: rgb(15 15 25 / 0.5) !important; }
+[data-theme="light"] .text-white\/45 { color: rgb(15 15 25 / 0.45) !important; }
+[data-theme="light"] .text-white\/40 { color: rgb(15 15 25 / 0.4) !important; }
+[data-theme="light"] .text-white\/35 { color: rgb(15 15 25 / 0.35) !important; }
+[data-theme="light"] .text-white\/30 { color: rgb(15 15 25 / 0.3) !important; }
+[data-theme="light"] .text-white\/20 { color: rgb(15 15 25 / 0.2) !important; }
+[data-theme="light"] .text-white\/10 { color: rgb(15 15 25 / 0.1) !important; }
+
+/* Backgrounds — white-alpha → dark-alpha */
+[data-theme="light"] .bg-white\/10  { background-color: rgb(0 0 0 / 0.05) !important; }
+[data-theme="light"] .bg-white\/20  { background-color: rgb(0 0 0 / 0.08) !important; }
+[data-theme="light"] .bg-white\/\[0\.06\] { background-color: rgb(0 0 0 / 0.04) !important; }
+[data-theme="light"] .bg-white\/\[0\.10\] { background-color: rgb(0 0 0 / 0.06) !important; }
+
+/* Borders / rings */
+[data-theme="light"] .border-white\/10 { border-color: rgb(0 0 0 / 0.08) !important; }
+[data-theme="light"] .border-white\/15 { border-color: rgb(0 0 0 / 0.12) !important; }
+[data-theme="light"] .ring-white\/15  { --tw-ring-color: rgb(0 0 0 / 0.12) !important; }
+[data-theme="light"] .ring-white\/35  { --tw-ring-color: rgb(0 0 0 / 0.22) !important; }
+[data-theme="light"] .border-white    { border-color: rgb(15 15 25) !important; }
+
+/* Placeholder text */
+[data-theme="light"] .placeholder\:text-white\/30::placeholder {
+  color: rgb(15 15 25 / 0.35) !important;
+}
+
+/* Contact form input focus state bg override */
+[data-theme="light"] input:focus,
+[data-theme="light"] textarea:focus {
+  background-color: rgb(0 0 0 / 0.06) !important;
+}
+
+/* Ping dot in status badges — flip to dark */
+[data-theme="light"] .animate-ping.bg-white,
+[data-theme="light"] span.bg-white:not([class*="liquid"]) {
+  background-color: rgb(15 15 25) !important;
+}
+
+/* Horizontal dividers */
+[data-theme="light"] .bg-white\/\[0\.10\],
+[data-theme="light"] .h-px.bg-white\/10 {
+  background-color: rgb(0 0 0 / 0.08) !important;
 }

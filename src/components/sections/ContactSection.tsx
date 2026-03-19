@@ -1,17 +1,11 @@
 import { useState, FormEvent } from "react";
-import { motion, Variants } from "framer-motion";
-import { Send, Lock, Mail, User, MessageSquare, Copy, Check, Linkedin, Github } from "lucide-react";
+import { motion } from "framer-motion";
+import { Send, Mail, User, MessageSquare, Copy, Check, Linkedin, Github } from "lucide-react";
 import { SectionWrapper, itemVariants } from "../SectionWrapper";
-import { Terminal } from "../Terminal";
-import { MagneticButton } from "../MagneticButton";
 import { useToast } from "@/hooks/use-toast";
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
@@ -19,42 +13,21 @@ export function ContactSection() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       const response = await fetch("https://formsubmit.co/ajax/nxbeelanwar@gmail.com", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
       });
-
       if (response.ok) {
-        toast({
-          title: "Message Encrypted & Sent!",
-          description: "Thanks for reaching out. I'll get back to you soon.",
-        });
+        toast({ title: "Message Sent!", description: "Thanks for reaching out. I'll get back to you soon." });
         setFormData({ name: "", email: "", message: "" });
       } else {
-        toast({
-          title: "Failed to send",
-          description: "Something went wrong. Please try again.",
-          variant: "destructive",
-        });
+        toast({ title: "Failed to send", description: "Something went wrong. Please try again.", variant: "destructive" });
       }
     } catch {
-      toast({
-        title: "Network error",
-        description: "Could not send message. Please try again later.",
-        variant: "destructive",
-      });
+      toast({ title: "Network error", description: "Could not send message. Please try again later.", variant: "destructive" });
     }
-
     setIsSubmitting(false);
   };
 
@@ -62,95 +35,66 @@ export function ContactSection() {
     navigator.clipboard.writeText("nxbeelanwar@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-    toast({
-      title: "Email Copied!",
-      description: "nxbeelanwar@gmail.com",
-    });
+    toast({ title: "Email Copied!", description: "nxbeelanwar@gmail.com" });
   };
 
-  return (
-    <SectionWrapper
-      id="contact"
-      title="Contact"
-      subtitle="Let's build something amazing together"
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Contact Form */}
-        <motion.div variants={itemVariants}>
-          <div className="glass p-6 md:p-8 rounded-2xl border border-border">
-            {/* Terminal-style header */}
-            <div className="flex items-center gap-2 mb-6 pb-4 border-b border-border">
-              <div className="flex gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
-              </div>
-              <span className="text-xs text-muted-foreground font-mono ml-2">
-                secure-message-portal
-              </span>
-            </div>
+  const inputClass =
+    "w-full px-4 py-3 rounded-2xl text-white text-sm outline-none transition-all font-poppins" +
+    " placeholder:text-white/30 bg-white/[0.06] ring-1 ring-white/15 focus:ring-white/35 focus:bg-white/[0.10]";
 
+  return (
+    <SectionWrapper id="contact" title="Contact" subtitle="Let's build something amazing together">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Form */}
+        <motion.div variants={itemVariants}>
+          <div className="liquid-glass rounded-3xl p-6 md:p-8">
             <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Name */}
               <div className="space-y-2">
-                <label className="flex items-center gap-2 text-sm font-medium">
-                  <User className="w-4 h-4 text-primary" />
-                  Name
+                <label className="flex items-center gap-2 text-xs text-white/50 uppercase tracking-widest">
+                  <User className="w-3.5 h-3.5" /> Name
                 </label>
                 <input
                   type="text"
                   value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-mono"
-                  placeholder="Nabeel Siddiqui"
+                  className={inputClass}
+                  placeholder="Your name"
                 />
               </div>
 
-              {/* Email */}
               <div className="space-y-2">
-                <label className="flex items-center gap-2 text-sm font-medium">
-                  <Mail className="w-4 h-4 text-primary" />
-                  Email
+                <label className="flex items-center gap-2 text-xs text-white/50 uppercase tracking-widest">
+                  <Mail className="w-3.5 h-3.5" /> Email
                 </label>
                 <input
                   type="email"
                   value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-mono"
-                  placeholder="nabeel@example.com"
+                  className={inputClass}
+                  placeholder="your@email.com"
                 />
               </div>
 
-              {/* Message */}
               <div className="space-y-2">
-                <label className="flex items-center gap-2 text-sm font-medium">
-                  <MessageSquare className="w-4 h-4 text-primary" />
-                  Message
+                <label className="flex items-center gap-2 text-xs text-white/50 uppercase tracking-widest">
+                  <MessageSquare className="w-3.5 h-3.5" /> Message
                 </label>
                 <textarea
                   value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none font-mono"
+                  rows={5}
+                  className={`${inputClass} resize-none`}
                   placeholder="Your message..."
                 />
               </div>
 
-              {/* Submit Button */}
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:shadow-lg hover:shadow-primary/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                whileHover={{ scale: 1.02 }}
+                className="w-full liquid-glass-strong rounded-full flex items-center justify-center gap-2 px-6 py-3 text-white font-medium text-sm hover:scale-[1.02] active:scale-[0.98] transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
                 whileTap={{ scale: 0.98 }}
               >
                 {isSubmitting ? (
@@ -158,14 +102,14 @@ export function ContactSection() {
                     <motion.div
                       animate={{ rotate: 360 }}
                       transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full"
+                      className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
                     />
-                    Encrypting...
+                    Sending...
                   </>
                 ) : (
                   <>
-                    <Lock className="w-4 h-4" />
-                    Encrypt & Send
+                    <Send className="w-4 h-4" />
+                    Send Message
                   </>
                 )}
               </motion.button>
@@ -173,65 +117,63 @@ export function ContactSection() {
           </div>
         </motion.div>
 
-        {/* Quick Contact & Terminal */}
-        <motion.div variants={itemVariants} className="space-y-8">
-          {/* Quick Contact */}
-          <div className="glass p-6 rounded-2xl border border-border">
-            <h3 className="font-display text-lg font-semibold mb-4">
-              Quick Connect
-            </h3>
-
+        {/* Quick connect */}
+        <motion.div variants={itemVariants} className="space-y-4">
+          <div className="liquid-glass rounded-3xl p-6">
+            <h3 className="font-poppins font-medium text-white text-sm mb-5">Quick Connect</h3>
             <div className="space-y-3">
-              {/* Email */}
               <button
                 onClick={copyEmail}
-                className="w-full flex items-center justify-between p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
+                className="w-full flex items-center justify-between p-4 liquid-glass rounded-2xl text-left hover:scale-[1.02] transition-transform group"
               >
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-mono">
-                    nxbeelanwar@gmail.com
-                  </span>
+                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                    <Mail className="w-4 h-4 text-white/70" />
+                  </div>
+                  <span className="text-sm text-white/70 font-mono">nxbeelanwar@gmail.com</span>
                 </div>
-                {copied ? (
-                  <Check className="w-4 h-4 text-green-500" />
-                ) : (
-                  <Copy className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                )}
+                {copied
+                  ? <Check className="w-4 h-4 text-white/60" />
+                  : <Copy className="w-4 h-4 text-white/30 group-hover:text-white/60 transition-colors" />}
               </button>
 
-              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/nxbeel/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
+                className="w-full flex items-center gap-3 p-4 liquid-glass rounded-2xl hover:scale-[1.02] transition-transform"
               >
-                <Linkedin className="w-5 h-5 text-primary" />
-                <span className="text-sm font-mono">
-                  linkedin.com/in/nxbeel
-                </span>
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                  <Linkedin className="w-4 h-4 text-white/70" />
+                </div>
+                <span className="text-sm text-white/70 font-mono">linkedin.com/in/nxbeel</span>
               </a>
 
-              {/* GitHub */}
               <a
                 href="https://github.com/pythonjunkiee"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
+                className="w-full flex items-center gap-3 p-4 liquid-glass rounded-2xl hover:scale-[1.02] transition-transform"
               >
-                <Github className="w-5 h-5 text-primary" />
-                <span className="text-sm font-mono">github.com/pythonjunkiee</span>
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                  <Github className="w-4 h-4 text-white/70" />
+                </div>
+                <span className="text-sm text-white/70 font-mono">github.com/pythonjunkiee</span>
               </a>
             </div>
           </div>
 
-          {/* AI Lab Terminal */}
-          <div>
-            <h3 className="font-display text-lg font-semibold mb-4 flex items-center gap-2">
-              <span className="text-primary">&gt;_</span> AI Lab Terminal
-            </h3>
-            <Terminal />
+          {/* Availability note */}
+          <div className="liquid-glass rounded-3xl p-6 text-center">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-50" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+              </span>
+              <span className="text-xs text-white/50 uppercase tracking-widest">Status</span>
+            </div>
+            <p className="text-white font-medium text-sm">Open to Roles</p>
+            <p className="text-white/40 text-xs mt-1">Abu Dhabi, UAE · Remote-friendly</p>
           </div>
         </motion.div>
       </div>

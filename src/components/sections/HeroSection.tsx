@@ -1,159 +1,163 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Eye } from "lucide-react";
-import { MagneticButton } from "../MagneticButton";
 import { AnimatedCounter } from "../AnimatedCounter";
-import { ContainerScroll } from "../ui/container-scroll-animation";
+import { MagneticWrapper } from "../MagneticWrapper";
+import { TextShimmer } from "../ui/text-shimmer";
+import AnimatedTextCycle from "../ui/animated-text-cycle";
 
 const metrics = [
   { value: 2000, suffix: "+", label: "Satellite Images Processed" },
-  { value: 1, suffix: "", label: "Published Research Paper" },
+  { value: 97.7, suffix: "%", label: "CNN Model Accuracy" },
+  { value: 1,    suffix: "",  label: "Published Research Paper" },
 ];
 
+const roles = [
+  "Software Developer",
+  "AI Engineer",
+  "Security Analyst",
+  "ML Researcher",
+  "Problem Solver",
+];
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.13, delayChildren: 0.05 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 28, filter: "blur(10px)" },
+  visible: {
+    opacity: 1, y: 0, filter: "blur(0px)",
+    transition: { duration: 0.75, ease: [0.21, 0.47, 0.32, 0.98] },
+  },
+};
+
 export function HeroSection() {
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setTimeout(() => setRoleIndex((i) => (i + 1) % roles.length), 2200);
+    return () => clearTimeout(id);
+  }, [roleIndex]);
+
+  const scrollToAbout    = () => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToProjects = () => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <section
       id="home"
-      className="relative overflow-hidden scroll-mt-8"
+      className="relative min-h-screen flex flex-col px-6 pt-8 scroll-mt-0 overflow-hidden"
     >
-      {/* Mesh gradient background */}
-      <div className="absolute inset-0 mesh-gradient" />
 
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
-
-      <div className="relative z-10">
-        <ContainerScroll
-          titleComponent={
-            <div className="flex flex-col items-center">
-              {/* Status badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
-              >
-                <div className="relative">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  <div className="absolute inset-0 w-2 h-2 rounded-full bg-primary animate-ping opacity-75" />
-                </div>
-                <span className="text-sm text-muted-foreground">
-                  Available for opportunities
-                </span>
-              </motion.div>
-
-              {/* Main heading */}
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
-              >
-                <span className="block">Nabeel Anwar</span>
-                <span className="block text-primary neon-text">Siddiqui</span>
-              </motion.h1>
-
-              {/* Subheading */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
-              >
-                Software Developer Engineer | B.Tech CSE (KIIT, 2025)
-              </motion.p>
-            </div>
-          }
-        >
-          {/* Inner card content: metrics + CTA */}
-          <div className="flex flex-col items-center justify-center h-full p-4 md:p-8">
-            {/* Metrics */}
-            <div className="flex flex-wrap justify-center gap-4 mb-10">
-              {metrics.map((metric, index) => (
-                <motion.div
-                  key={metric.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                  className="px-4 py-3 rounded-xl glass"
-                >
-                  <div className="font-display text-2xl md:text-3xl font-bold text-primary">
-                    <AnimatedCounter
-                      value={metric.value}
-                      suffix={metric.suffix}
-                      decimals={metric.suffix === "%" ? 1 : 0}
-                    />
-                  </div>
-                  <div className="text-xs md:text-sm text-muted-foreground mt-1">
-                    {metric.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-wrap justify-center gap-4"
-            >
-              <MagneticButton onClick={scrollToProjects} variant="primary">
-                <Eye className="w-4 h-4" />
-                View My Work
-              </MagneticButton>
-              <MagneticButton href="/resume" variant="secondary">
-                <Download className="w-4 h-4" />
-                Download Resume
-              </MagneticButton>
-            </motion.div>
+      {/* ── Hero content — flex-1 centres it, pb-24 keeps clear of scroll btn ── */}
+      <motion.div
+        className="relative z-20 flex-1 flex flex-col items-center justify-center w-full max-w-3xl mx-auto text-center pb-24"
+        variants={container}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Status badge */}
+        <motion.div variants={item} className="mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full liquid-glass">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+            </span>
+            <span className="text-xs text-white/65 tracking-wide">Available for opportunities</span>
           </div>
-        </ContainerScroll>
-      </div>
+        </motion.div>
 
-      {/* Scroll indicator */}
+        {/* Main heading */}
+        <motion.h1
+          variants={item}
+          className="font-poppins font-medium text-5xl md:text-7xl lg:text-8xl mb-0 leading-[1.07]"
+          style={{ letterSpacing: "-0.04em" }}
+        >
+          <TextShimmer as="span" duration={3.5} spread={5} className="font-poppins font-medium">
+            Nabeel Anwar
+          </TextShimmer>
+          <br />
+          <em className="font-serif not-italic text-white/72" style={{ fontStyle: "italic" }}>
+            Siddiqui
+          </em>
+        </motion.h1>
+
+        {/* Animated role subtitle */}
+        <motion.div
+          variants={item}
+          className="flex items-center justify-center gap-4 mt-6 mb-12"
+        >
+          <span className="h-px w-10 bg-white/20 flex-shrink-0" />
+          <p className="font-poppins font-light text-lg md:text-xl text-white/60 tracking-[0.18em] flex items-center whitespace-nowrap">
+            Software&nbsp;
+            <AnimatedTextCycle
+              words={["Engineer", "Developer", "Architect", "Builder", "Innovator"]}
+              interval={2800}
+              className="font-poppins font-light text-lg md:text-xl text-white/60 tracking-[0.18em]"
+            />
+          </p>
+          <span className="h-px w-10 bg-white/20 flex-shrink-0" />
+        </motion.div>
+
+        {/* Metrics */}
+        <motion.div variants={item} className="flex flex-wrap justify-center gap-3 mb-12">
+          {metrics.map((m) => (
+            <div key={m.label} className="liquid-glass rounded-full px-5 py-2.5 flex flex-col items-center">
+              <span className="font-poppins font-medium text-xl text-white">
+                <AnimatedCounter value={m.value} suffix={m.suffix} decimals={m.suffix === "%" ? 1 : 0} />
+              </span>
+              <span className="text-[10px] text-white/45 mt-0.5 uppercase tracking-widest whitespace-nowrap">
+                {m.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* CTA buttons */}
+        <motion.div variants={item} className="flex flex-wrap justify-center gap-4">
+          <MagneticWrapper strength={0.18}>
+            <button
+              onClick={scrollToProjects}
+              className="liquid-glass-strong rounded-full px-7 py-3 flex items-center gap-3 text-white font-medium text-sm hover:scale-105 active:scale-95 transition-transform"
+            >
+              <Eye className="w-4 h-4" />
+              View My Work
+            </button>
+          </MagneticWrapper>
+
+          <MagneticWrapper strength={0.18}>
+            <a
+              href="/resume"
+              className="liquid-glass rounded-full px-7 py-3 flex items-center gap-3 text-white/75 font-medium text-sm hover:scale-105 active:scale-95 transition-transform"
+            >
+              <Download className="w-4 h-4" />
+              Download Resume
+            </a>
+          </MagneticWrapper>
+        </motion.div>
+      </motion.div>
+
+      {/* ── Scroll button — sits at the natural bottom, never overlaps content ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        transition={{ duration: 1, delay: 1.4 }}
+        className="relative z-20 flex justify-center pb-10"
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center gap-2 text-muted-foreground"
+        <button
+          onClick={scrollToProjects}
+          className="flex flex-col items-center gap-2 text-white/35 hover:text-white/70 transition-colors cursor-pointer group"
+          aria-label="Scroll to Projects"
         >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <ArrowDown className="w-4 h-4" />
-        </motion.div>
+          <span className="text-[10px] uppercase tracking-widest">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ArrowDown className="w-4 h-4 group-hover:scale-110 transition-transform" />
+          </motion.div>
+        </button>
       </motion.div>
     </section>
   );

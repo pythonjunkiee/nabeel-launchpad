@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import { Briefcase, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { SectionWrapper, itemVariants } from "../SectionWrapper";
 
 interface ExperienceItem {
   title: string;
   organization: string;
   period: string;
-  description?: string;
   details?: string[];
   skills?: string[];
   impact?: string;
@@ -19,7 +18,7 @@ const experienceData: ExperienceItem[] = [
     period: "Jan 2026 – Present",
     details: [
       "Built and managed virtualized security labs using Linux, Windows Server, Kali Linux, and VirtualBox for hands-on security testing in simulated enterprise environments",
-      "Analyzed network traffic and protocols (DNS, HTTP, FTP, TCP/IP) using Wireshark to identify anomalies and credential exposure in lab-based and enterprise-simulated scenarios",
+      "Analyzed network traffic and protocols (DNS, HTTP, FTP, TCP/IP) using Wireshark to identify anomalies and credential exposure",
       "Configured and administered Windows Server services, including Active Directory, DNS, DHCP, and authentication controls",
       "Performed log analysis and security monitoring across Windows, Linux, proxy, firewall, and endpoint logs to detect suspicious activity",
       "Worked with SIEM platforms (IBM QRadar & Splunk) for log ingestion, correlation rules, alerting, offense management, and reporting",
@@ -47,57 +46,55 @@ const experienceData: ExperienceItem[] = [
 export function ExperienceSection() {
   return (
     <SectionWrapper id="experience" title="Experience" subtitle="My professional journey">
-      <div className="relative">
+      <div className="relative pl-6">
         {/* Timeline line */}
-        <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-border" />
+        <div className="absolute left-0 top-2 bottom-2 w-px bg-white/15" />
 
-        <div className="space-y-12">
+        <div className="space-y-8">
           {experienceData.map((item, index) => (
-            <motion.div
-              key={`${item.title}-${index}`}
-              variants={itemVariants}
-              className="relative pl-12 md:pl-16"
-            >
+            <motion.div key={`${item.title}-${index}`} variants={itemVariants} className="relative">
               {/* Timeline dot */}
-              <div className="absolute left-2.5 md:left-4.5 top-1 w-3 h-3 rounded-full bg-primary ring-4 ring-background z-10" />
+              <div className="absolute -left-[25px] top-6 w-3 h-3 rounded-full bg-white/60 ring-4 ring-white/10" />
 
-              {/* Period badge */}
-              <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
-                <Calendar className="w-3.5 h-3.5" />
-                <span className="font-mono">{item.period}</span>
-              </div>
-
-              {/* Title & org */}
-              <h3 className="font-display text-lg font-bold">{item.title}</h3>
-              <p className="text-primary font-medium text-sm mb-3">{item.organization}</p>
-
-              {/* Concise details */}
-              {item.details && (
-                <ul className="space-y-1.5 mb-3">
-                  {item.details.map((detail, i) => (
-                    <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                      <span className="text-primary mt-0.5 shrink-0">▸</span>
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {/* Skills */}
-              {item.skills && (
-                <div className="flex flex-wrap gap-1.5 mb-2">
-                  {item.skills.map((skill) => (
-                    <span key={skill} className="px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary font-mono">
-                      {skill}
-                    </span>
-                  ))}
+              <div className="liquid-glass rounded-3xl p-6 md:p-8">
+                {/* Period */}
+                <div className="flex items-center gap-2 text-xs text-white/40 mb-3 font-mono">
+                  <Calendar className="w-3.5 h-3.5" />
+                  {item.period}
                 </div>
-              )}
 
-              {/* Impact */}
-              {item.impact && (
-                <p className="text-xs text-muted-foreground italic mt-2">💡 {item.impact}</p>
-              )}
+                {/* Title & org */}
+                <h3 className="font-poppins font-medium text-white text-lg mb-1">{item.title}</h3>
+                <p className="text-white/60 text-sm font-medium mb-5">{item.organization}</p>
+
+                {/* Details */}
+                {item.details && (
+                  <ul className="space-y-2 mb-5">
+                    {item.details.map((detail, i) => (
+                      <li key={i} className="text-sm text-white/55 flex items-start gap-2">
+                        <span className="text-white/30 mt-0.5 shrink-0">▸</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {/* Skills */}
+                {item.skills && (
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {item.skills.map((skill) => (
+                      <span key={skill} className="liquid-glass rounded-full px-3 py-1 text-xs text-white/70">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Impact */}
+                {item.impact && (
+                  <p className="text-xs text-white/40 italic">→ {item.impact}</p>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>

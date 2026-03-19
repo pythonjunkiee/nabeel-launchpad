@@ -1,48 +1,57 @@
-import { motion, Variants } from "framer-motion";
-import { MapPin, Briefcase, Brain, Cloud, Eye, Database } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MapPin, Briefcase, Brain, Cloud, Eye, Database, ArrowRight } from "lucide-react";
 import { SectionWrapper, itemVariants } from "../SectionWrapper";
 
 const bentoItems = [
   {
     title: "About Me",
     content:
-      "Hi! I'm Nabeel, a Software Engineer with a background in Computer Science specializing in Artificial Intelligence. I am deeply interested in Machine Learning and Deep Learning, having already architected GAN-based restoration models and CNN classifiers with 97.8% accuracy. I am also actively expanding my expertise in Full-Stack Web Development, building on my experience optimizing payment gateways and synchronizing SQL databases to create seamless, end-to-end intelligent systems. This very webpage is a part of my journey in learning and sharpening my web development skills. If you visit a week from now and find that your favourite feature has mysteriously vanished, feel free to reach out haha, or if you have any suggestions to make this site better, I'd love to hear from you in the contact box below!",
+      "Hi! I'm Nabeel, a Software Engineer with a background in Computer Science specialising in Artificial Intelligence. I'm deeply interested in Machine Learning and Deep Learning, having architected GAN-based restoration models and CNN classifiers with 97.8% accuracy. I'm also actively expanding into Full-Stack Web Development.",
     icon: Brain,
     className: "md:col-span-2 md:row-span-2",
+    extra: "Open to ML · AI · Full-Stack roles — Abu Dhabi & Remote",
   },
   {
     title: "Location",
     content: "Abu Dhabi, UAE",
     icon: MapPin,
     className: "",
+    extra: "UTC+4 · Remote-friendly",
   },
   {
     title: "Focus",
-    content: "Machine Learning, Computer Vision, AI Systems & Full-Stack Web Development",
+    content: "Machine Learning · Computer Vision · AI Systems · Full-Stack Web",
     icon: Eye,
     className: "md:col-span-2",
+    extra: "CNN · GANs · React · Node.js",
   },
   {
     title: "Preferred Roles",
-    content: "ML Engineer, AI Engineer, Web Dev Engineer",
+    content: "ML Engineer · AI Engineer · Web Dev Engineer",
     icon: Briefcase,
     className: "md:col-span-2",
+    extra: "Open to internships and full-time positions",
   },
   {
     title: "Tech Focus",
-    content: "Python, TensorFlow, PyTorch, React, TypeScript, Node.js, Tailwind CSS, Next.js",
+    content: "Python · TensorFlow · PyTorch · React · TypeScript · Node.js · Tailwind · Next.js",
     icon: Database,
     className: "md:col-span-2",
+    extra: "Also: SQL · Streamlit · AWS · Azure · Git",
   },
   {
     title: "Domain",
-    content: "Machine Learning, Deep Learning, AI Development & Full-Stack Web Development",
+    content: "ML · Deep Learning · AI Development · Full-Stack Web",
     icon: Cloud,
     className: "",
+    extra: "Computer Vision · NLP · GIS · Security",
   },
 ];
 
 export function AboutSection() {
+  const [hovered, setHovered] = useState<string | null>(null);
+
   return (
     <SectionWrapper
       id="about"
@@ -50,23 +59,45 @@ export function AboutSection() {
       subtitle="Building intelligent systems from satellite pixels to cloud workloads"
     >
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        {bentoItems.map((item, index) => (
+        {bentoItems.map((item) => (
           <motion.div
             key={item.title}
             variants={itemVariants}
-            className={`group relative p-6 rounded-2xl glass border border-border hover:border-primary/50 transition-all duration-300 ${item.className}`}
+            onHoverStart={() => setHovered(item.title)}
+            onHoverEnd={() => setHovered(null)}
+            animate={hovered === item.title ? { scale: 1.025 } : { scale: 1 }}
+            transition={{ type: "spring", stiffness: 250, damping: 22 }}
+            className={`group liquid-glass rounded-3xl p-6 cursor-default ${item.className}`}
           >
             {/* Icon */}
-            <div className="inline-flex p-3 rounded-xl bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors">
-              <item.icon className="w-6 h-6 text-primary" />
-            </div>
+            <motion.div
+              animate={hovered === item.title ? { scale: 1.1, rotate: 8 } : { scale: 1, rotate: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mb-4"
+            >
+              <item.icon className="w-5 h-5 text-white/75" />
+            </motion.div>
 
-            {/* Content */}
-            <h3 className="font-display text-lg font-semibold mb-2">{item.title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">{item.content}</p>
+            <h3 className="font-poppins font-medium text-white text-base mb-2">{item.title}</h3>
+            <p className="text-white/52 text-sm leading-relaxed">{item.content}</p>
 
-            {/* Hover glow */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+            {/* Hover reveal */}
+            <AnimatePresence>
+              {hovered === item.title && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                  animate={{ opacity: 1, height: "auto", marginTop: 12 }}
+                  exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <span className="text-xs text-white/38 italic">{item.extra}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-white/30 flex-shrink-0" />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         ))}
       </div>

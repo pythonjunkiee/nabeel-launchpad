@@ -13,48 +13,35 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 },
-  },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55 } },
 };
 
-export function SectionWrapper({
-  children,
-  id,
-  className,
-  title,
-  subtitle,
-}: SectionWrapperProps) {
+export function SectionWrapper({ children, id, className, title, subtitle }: SectionWrapperProps) {
   return (
     <motion.section
       id={id}
-      className={cn("pt-8 pb-16 md:pt-12 md:pb-24 relative scroll-mt-0", className)}
+      className={cn("py-20 md:py-28 relative scroll-mt-4", className)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-80px" }}
       variants={containerVariants}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 lg:px-8">
         {(title || subtitle) && (
-          <motion.div variants={itemVariants} className="mb-12 md:mb-16">
+          <motion.div variants={itemVariants} className="mb-14 md:mb-16">
             {title && (
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                <span className="text-primary">//</span> {title}
+              <h2 className="font-poppins font-medium text-3xl md:text-4xl lg:text-5xl text-white mb-3 tracking-tight">
+                {title}
               </h2>
             )}
             {subtitle && (
-              <p className="text-lg text-muted-foreground max-w-2xl">
+              <p className="text-base text-white/50 max-w-2xl">
                 {subtitle}
               </p>
             )}

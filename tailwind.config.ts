@@ -75,6 +75,8 @@ export default {
         sans: ["Inter", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "Fira Code", "monospace"],
         display: ["Space Grotesk", "Inter", "system-ui", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+        serif: ["Source Serif 4", "Georgia", "serif"],
       },
       keyframes: {
         "accordion-down": {
